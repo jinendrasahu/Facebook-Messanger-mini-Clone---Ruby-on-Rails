@@ -1,0 +1,11 @@
+<%= form_with(model: group) do |form| %>
+
+<div class="form-container">
+    <p class="label">Group Name<p>
+    <%= form.text_field :name ,class:"group-input" %>
+
+<br>
+
+    <%= form.submit "New Group",class:"btn" %>
+</div>
+<% end %>

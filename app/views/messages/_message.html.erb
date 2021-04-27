@@ -1,0 +1,6 @@
+<div class="chat <%= 'me' if message.user==current_user %>">
+  <span class="<%= 'my' if message.user==current_user %> <%= 'her' if message.user!=current_user %>">
+  <span class="big <%= 'mine' if message.user==current_user %>"><%= message.content %></span><br>
+<%= message.user.username %></span>
+  </div>
+  <br>

@@ -1,0 +1,12 @@
+
+
+<%= form_with(model: message) do |form| %>
+ 
+  
+
+    <%= form.text_area :content, class:"msg-input" %>
+    <%= form.submit 'Send',data: { disable_with: false },class:"btn send-btn" %>
+    <br>
+    <%= form.hidden_field :group_id ,value:group.id  %>
+
+<% end %>

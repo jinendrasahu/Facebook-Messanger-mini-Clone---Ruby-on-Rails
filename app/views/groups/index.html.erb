@@ -1,0 +1,43 @@
+
+
+<div id="group-id" data-group-id="<%= @group.try(:id) %>"></div>
+<div id="user-id" data-user-id="<%= current_user.id %>"></div>
+
+<div class="container">
+<div class="group-container">
+<%= render 'form',group:Group.new %>
+<hr>
+<h4>Groups</h4>
+<% @groups.each do |group| %>
+  <%= link_to group do %>
+<div class="group <%= 'active' if group.id==@group.try(:id) %>">
+<span class="group-head"><%= group.name  %></span>
+<br>
+<span class="members"><%= group.users.uniq.count %> Members</span>
+</div>
+
+<% end %>
+<% end %>
+</div>
+
+<div class="msg-container">
+<div class="messanger">
+<% if @group.present? %>
+<h3 class="gname"><%= @group.name  %></h3>
+<hr>
+<div class="message-box">
+<div id="messages">
+<% @group.messages.each do |message| %>
+  
+  <%= render 'messages/message',message:message %>
+
+  <% end %>
+  </div>
+<div class="con">
+ <%= render 'messages/form',message:Message.new,group:@group ,class:"send-msg" %>
+</div>
+</div>
+<% end %>
+</div>
+
+  </div>
